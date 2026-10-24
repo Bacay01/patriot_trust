@@ -1,0 +1,27 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+:root {
+  /* Brand colours */
+  --red: #E31837;
+  --red-dark: #C1122D;
+  --navy: #012169;
+  --navy-light: #0A2F8F;
+  --grey-bg: #F4F5F7;
+  --text-grey: #3C4043;
+}
+
+@theme inline {
+  --color-red: var(--red);
+  --color-red-dark: var(--red-dark);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-grey-bg: var(--grey-bg);
+  --color-text-grey: var(--text-grey);
+}
+
+body {
+  background: #ffffff;
+  color: var(--text-grey);
+  font-family: var(--font-public-sans), Arial, sans-serif;
+}
