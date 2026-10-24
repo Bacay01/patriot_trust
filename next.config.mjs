@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  cacheComponents: false,
-  partialPrefetching: true,
   devIndicators: false,
   turbopack: {
     rules: {
