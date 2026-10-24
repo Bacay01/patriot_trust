@@ -16,7 +16,7 @@ export default function Header({ firstName }) {
       <header className="sticky top-0 z-20 hidden bg-navy text-white shadow-sm md:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <span className="text-xl font-extrabold">
-            Bank Of<span className="text-red">America</span>
+            Bank Of America
           </span>
 
           <nav className="flex items-center gap-8 text-sm font-medium">

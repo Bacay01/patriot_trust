@@ -6,7 +6,7 @@ export default function Navbar() {
         {/* Left: brand */}
         <div className="flex items-center gap-2">
           <span className="text-2xl font-extrabold text-navy">
-            Bank Of<span className="text-red">America</span>
+            Bank Of America
           </span>
         </div>
 
