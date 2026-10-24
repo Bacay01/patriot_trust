@@ -46,7 +46,7 @@ export default function LoginPage() {
       <header className="w-full border-b border-gray-200">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
           <span className="text-xl font-extrabold text-navy sm:text-2xl">
-            Pay On<span className="text-red">Trust</span>
+            Bank Of<span className="text-red">America</span>
           </span>
           <a href="/signup" className="text-sm text-text-grey hover:text-navy">
             Enroll
