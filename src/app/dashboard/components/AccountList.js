@@ -20,14 +20,16 @@ export default function AccountList({ title, accounts }) {
 
   return (
     <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-      {/* Group header with thin red accent */}
-      <div className="flex items-center gap-3 border-b border-gray-100 px-5 py-3">
-        <div className="flex h-5 w-1 overflow-hidden rounded-full">
-          <div className="h-full w-full bg-red" />
-        </div>
-        <h2 className="text-sm font-bold uppercase tracking-wide text-navy">
+      {/* Red brand banner (like BofA) */}
+      <div className="bg-red px-5 py-3">
+        <h2 className="text-base font-bold text-white">Bank Of America</h2>
+      </div>
+
+      {/* Group title */}
+      <div className="border-b border-gray-100 px-5 py-2">
+        <p className="text-xs font-bold uppercase tracking-wide text-text-grey">
           {title}
-        </h2>
+        </p>
       </div>
 
       {/* Account rows */}

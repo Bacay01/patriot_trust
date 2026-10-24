@@ -16,7 +16,7 @@ export default function Header({ firstName }) {
       <header className="sticky top-0 z-20 hidden bg-navy text-white shadow-sm md:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <span className="text-xl font-extrabold">
-            Patriot<span className="text-red">Trust</span>
+            Pay On<span className="text-red">Trust</span>
           </span>
 
           <nav className="flex items-center gap-8 text-sm font-medium">
@@ -44,13 +44,20 @@ export default function Header({ firstName }) {
 
       {/* ===== MOBILE HEADER (hidden on desktop) ===== */}
       <header className="sticky top-0 z-20 bg-white shadow-sm md:hidden">
-        <div className="flex items-center justify-between px-4 py-3">
-          <span className="text-lg font-extrabold text-navy">
-            Patriot<span className="text-red">Trust</span>
-          </span>
+        <div className="grid grid-cols-3 items-center px-4 py-3">
+          {/* Left: notifications */}
           <div className="flex items-center gap-4 text-red">
             <Bell className="h-5 w-5" />
             <HelpCircle className="h-5 w-5" />
+          </div>
+
+          {/* Center: BOA logo */}
+          <span className="text-center text-xl font-extrabold text-navy">
+                    B<span className="text-red">O</span>A
+          </span>
+
+          {/* Right: logout */}
+          <div className="flex items-center justify-end text-red">
             <form action={doSignOut}>
               <button type="submit" aria-label="Log out">
                 <LogOut className="h-5 w-5" />

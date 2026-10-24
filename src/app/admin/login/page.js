@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
 
         <div className="p-8">
           <h1 className="text-xl font-bold text-navy">Admin Console</h1>
-          <p className="mt-1 text-sm text-text-grey">PatriotTrust staff login</p>
+          <p className="mt-1 text-sm text-text-grey">Bank Of America staff login</p>
 
           {error && (
             <div className="mt-4 rounded-md bg-red/10 px-4 py-3 text-sm font-medium text-red">

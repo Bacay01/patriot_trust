@@ -24,7 +24,7 @@ export default async function AdminPanelPage() {
       <header className="bg-navy text-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
           <span className="text-lg font-bold">
-            Patriot<span className="text-red">Trust</span> <span className="text-white/60">Admin</span>
+            Pay On<span className="text-red">Trust</span> <span className="text-white/60">Admin</span>
           </span>
           <form action="/api/admin/logout" method="POST">
             <button

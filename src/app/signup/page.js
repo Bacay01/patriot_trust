@@ -56,7 +56,7 @@ export default function SignupPage() {
       <header className="w-full border-b border-gray-200">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
           <span className="text-xl font-extrabold text-navy sm:text-2xl">
-            Patriot<span className="text-red">Trust</span>
+            Pay On<span className="text-red">Trust</span>
           </span>
           <a href="/login" className="text-sm text-text-grey hover:text-navy">
             Already enrolled? Log in

@@ -9,7 +9,7 @@ const publicSans = Public_Sans({
 });
 
 export const metadata = {
-  title: "Patriot Trust",
+  title: "Bank Of America",
   description: "Banking that puts you first.",
 };
 

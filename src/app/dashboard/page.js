@@ -1,5 +1,6 @@
 // src/app/dashboard/page.js
 import { redirect } from "next/navigation";
+import { ChevronRight } from "lucide-react";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import Header from "./components/Header";
@@ -62,6 +63,21 @@ export default async function DashboardPage() {
         <Sidebar />
 
         <div className="flex-1 space-y-5 px-4 py-6 sm:px-6 lg:px-8">
+          {/* Greeting card */}
+          <div className="overflow-hidden rounded-xl bg-white shadow-sm">
+            <div className="flex items-center justify-between px-5 py-4">
+              <div>
+                <p className="text-lg font-bold text-navy">Hello, {firstName}</p>
+                <p className="text-sm text-text-grey">Preferred Rewards Member</p>
+              </div>
+              <ChevronRight className="h-5 w-5 text-text-grey" />
+            </div>
+            <div className="flex items-center justify-between border-t border-gray-100 px-5 py-4">
+              <p className="text-base font-semibold text-navy">My Rewards</p>
+              <ChevronRight className="h-5 w-5 text-text-grey" />
+            </div>
+          </div>
+
           {/* Quick actions */}
           <QuickActions />
 

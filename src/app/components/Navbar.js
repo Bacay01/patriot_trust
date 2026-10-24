@@ -6,7 +6,7 @@ export default function Navbar() {
         {/* Left: brand */}
         <div className="flex items-center gap-2">
           <span className="text-2xl font-extrabold text-navy">
-            Patriot<span className="text-red">Trust</span>
+            Pay On<span className="text-red">Trust</span>
           </span>
         </div>
 
