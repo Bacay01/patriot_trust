@@ -7,7 +7,6 @@ import prisma from "@/lib/prisma";
 import AccountAdmin from "./AccountAdmin";
 import ResetCredentials from "./ResetCredentials";
 
-export const dynamic = "force-dynamic";
   import DeleteUser from "./DeleteUser";
 
 export default async function AdminUserPage({ params }) {
