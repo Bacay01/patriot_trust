@@ -5,6 +5,8 @@ import { ArrowLeft, Construction, Lock } from "lucide-react";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function FeaturePage() {
   const session = await auth();
   if (!session) redirect("/login");

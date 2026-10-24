@@ -6,6 +6,8 @@ import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import TransferForm from "./TransferForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function TransferPage() {
   const session = await auth();
   if (!session) redirect("/login");

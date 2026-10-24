@@ -5,6 +5,8 @@ import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { ArrowLeft, ArrowLeftRight, Receipt, ArrowDownLeft, ArrowUpRight, Inbox } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 function money(amount) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount);
 }

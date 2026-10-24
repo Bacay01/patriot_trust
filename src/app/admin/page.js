@@ -5,6 +5,8 @@ import { getAdminSession } from "@/lib/adminAuth";
 import prisma from "@/lib/prisma";
 import { ChevronRight } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 function money(amount) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount);
 }
