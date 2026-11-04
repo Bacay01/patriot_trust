@@ -52,15 +52,15 @@ export default async function AdminPanelPage() {
                   <Link
                     key={user.id}
                     href={`/admin/users/${user.id}`}
-                    className="flex items-center justify-between px-5 py-4 hover:bg-grey-bg"
+                    className="flex items-center justify-between gap-3 px-5 py-4 hover:bg-grey-bg"
                   >
-                    <div>
-                      <p className="text-sm font-semibold text-navy">{user.fullName}</p>
-                      <p className="text-xs text-text-grey">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-navy truncate">{user.fullName}</p>
+                      <p className="text-xs text-text-grey truncate">
                         {user.email} · @{user.userId}
                       </p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 shrink-0">
                       <span className="text-sm font-bold text-navy">{money(totalBalance)}</span>
                       <ChevronRight className="h-4 w-4 text-text-grey" />
                     </div>

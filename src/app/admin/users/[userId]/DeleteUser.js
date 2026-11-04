@@ -25,16 +25,16 @@ export default function DeleteUser({ userId, userName }) {
     <div className="rounded-lg border border-red/30 bg-red/5 p-5">
       <h2 className="text-sm font-bold uppercase tracking-wide text-red">Danger zone</h2>
       {!confirming ? (
-        <div className="mt-3 flex items-center justify-between">
+        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-text-grey">Permanently delete this customer and all their data.</p>
-          <button onClick={() => setConfirming(true)} className="flex items-center gap-2 rounded-full bg-red px-4 py-2 text-sm font-semibold text-white hover:bg-red-dark">
+          <button onClick={() => setConfirming(true)} className="flex shrink-0 items-center gap-2 self-start rounded-full bg-red px-4 py-2 text-sm font-semibold text-white hover:bg-red-dark sm:self-auto">
             <Trash2 className="h-4 w-4" /> Delete user
           </button>
         </div>
       ) : (
         <div className="mt-3 space-y-3">
           <p className="text-sm font-medium text-red">Are you sure? This permanently deletes {userName}, all their accounts, and all transactions. This cannot be undone.</p>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <button onClick={handleDelete} disabled={busy} className="rounded-full bg-red px-5 py-2 text-sm font-semibold text-white hover:bg-red-dark disabled:opacity-50">
               {busy ? "Deleting..." : "Yes, delete permanently"}
             </button>

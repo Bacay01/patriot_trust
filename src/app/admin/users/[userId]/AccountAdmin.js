@@ -80,7 +80,7 @@ export default function AccountAdmin({ account }) {
 
   return (
     <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-      <div className="flex items-center justify-between border-b border-gray-100 bg-grey-bg px-5 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 bg-grey-bg px-5 py-3">
         <div>
           <span className="text-sm font-bold text-navy">
             {typeLabel[account.type] || account.type}
@@ -114,7 +114,7 @@ export default function AccountAdmin({ account }) {
 
         {/* Freeze */}
         <div className="rounded-md bg-grey-bg p-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="text-sm font-semibold text-navy">
               {account.frozen ? "Account is FROZEN" : "Account is active"}
             </span>
@@ -144,7 +144,7 @@ export default function AccountAdmin({ account }) {
 
                 {/* Block transfers */}
         <div className="rounded-md bg-grey-bg p-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <span className="text-sm font-semibold text-navy">
                 {account.blockTransfer ? "Transfers BLOCKED" : "Transfers allowed"}
@@ -158,7 +158,7 @@ export default function AccountAdmin({ account }) {
             <button
               onClick={toggleBlockTransfer}
               disabled={busy}
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold disabled:opacity-50 ${
+              className={`shrink-0 self-start rounded-full px-4 py-1.5 text-sm font-semibold disabled:opacity-50 sm:self-auto ${
                 account.blockTransfer
                   ? "bg-green-600 text-white hover:bg-green-700"
                   : "bg-red text-white hover:bg-red-dark"
@@ -172,7 +172,7 @@ export default function AccountAdmin({ account }) {
         {/* Add transaction */}
         <form onSubmit={addTx} className="space-y-2 rounded-md border border-gray-200 p-3">
           <p className="text-xs font-bold uppercase text-text-grey">Add transaction</p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <select
               value={tx.type}
               onChange={(e) => setTx({ ...tx, type: e.target.value })}
@@ -196,7 +196,7 @@ export default function AccountAdmin({ account }) {
               value={tx.description}
               onChange={(e) => setTx({ ...tx, description: e.target.value })}
               required
-              className="flex-1 rounded-md border border-gray-400 px-3 py-2 text-sm outline-none focus:border-navy"
+              className="min-w-[10rem] flex-1 rounded-md border border-gray-400 px-3 py-2 text-sm outline-none focus:border-navy"
             />
           </div>
           <input
@@ -227,7 +227,7 @@ export default function AccountAdmin({ account }) {
                   {editingId === t.id ? (
                     /* EDIT MODE */
                     <div className="space-y-2 rounded-md bg-grey-bg p-2">
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <select
                           value={edit.type}
                           onChange={(e) => setEdit({ ...edit, type: e.target.value })}
@@ -247,7 +247,7 @@ export default function AccountAdmin({ account }) {
                           type="text"
                           value={edit.description}
                           onChange={(e) => setEdit({ ...edit, description: e.target.value })}
-                          className="flex-1 rounded-md border border-gray-400 px-2 py-1 text-sm outline-none focus:border-navy"
+                          className="min-w-[8rem] flex-1 rounded-md border border-gray-400 px-2 py-1 text-sm outline-none focus:border-navy"
                         />
                       </div>
                       <input
@@ -275,15 +275,15 @@ export default function AccountAdmin({ account }) {
                     </div>
                   ) : (
                     /* VIEW MODE */
-                    <div className="flex items-center justify-between">
-                      <span className="text-text-grey">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="min-w-0 truncate text-text-grey">
                         <span className={t.type === "credit" ? "text-green-700" : "text-red"}>
                           {t.type === "credit" ? "+" : "−"}
                           {money(t.amount)}
                         </span>{" "}
                         · {t.description}
                       </span>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 shrink-0">
                         <button
                           onClick={() => startEdit(t)}
                           disabled={busy}
