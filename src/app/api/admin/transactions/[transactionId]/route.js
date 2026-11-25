@@ -11,7 +11,7 @@ export async function PATCH(request, { params }) {
   }
 
   const { transactionId } = await params;
-  const { type, amount, description, label } = await request.json();
+  const { type, amount, description, label, createdAt } = await request.json();
 
   const value = Number(amount);
   if (!type || isNaN(value) || value <= 0 || !description) {
@@ -38,7 +38,13 @@ export async function PATCH(request, { params }) {
   await prisma.$transaction([
     prisma.transaction.update({
       where: { id: transactionId },
-      data: { type, amount: value, description, label: label || null },
+      data: {
+        type,
+        amount: value,
+        description,
+        label: label || null,
+        ...(createdAt ? { createdAt: new Date(createdAt) } : {}),
+      },
     }),
     prisma.account.update({
       where: { id: oldTx.accountId },

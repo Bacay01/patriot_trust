@@ -17,11 +17,11 @@ export default function AccountAdmin({ account }) {
 
   const [balance, setBalance] = useState(account.balance);
   const [freezeMsg, setFreezeMsg] = useState(account.freezeMessage || "");
-  const [tx, setTx] = useState({ type: "credit", amount: "", description: "", label: "" });
+  const [tx, setTx] = useState({ type: "credit", amount: "", description: "", label: "", createdAt: "" });
 
   // which transaction is being edited, and its editable values
   const [editingId, setEditingId] = useState(null);
-  const [edit, setEdit] = useState({ type: "credit", amount: "", description: "", label: "" });
+  const [edit, setEdit] = useState({ type: "credit", amount: "", description: "", label: "", createdAt: "" });
 
   async function post(url, body, method = "POST") {
     setBusy(true);
@@ -55,7 +55,7 @@ export default function AccountAdmin({ account }) {
   async function addTx(e) {
     e.preventDefault();
     await post(`/api/admin/accounts/${account.id}/transactions`, tx);
-    setTx({ type: "credit", amount: "", description: "", label: "" });
+    setTx({ type: "credit", amount: "", description: "", label: "", createdAt: "" });
   }
 
   async function deleteTx(id) {
@@ -63,6 +63,13 @@ export default function AccountAdmin({ account }) {
   }
 
   // start editing a transaction: fill the edit form with its current values
+  // Format a date for the datetime-local input: "YYYY-MM-DDTHH:MM"
+  function toLocalInput(date) {
+    const d = new Date(date);
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+
   function startEdit(t) {
     setEditingId(t.id);
     setEdit({
@@ -70,6 +77,7 @@ export default function AccountAdmin({ account }) {
       amount: t.amount,
       description: t.description,
       label: t.label || "",
+      createdAt: toLocalInput(t.createdAt),
     });
   }
 
@@ -206,6 +214,15 @@ export default function AccountAdmin({ account }) {
             onChange={(e) => setTx({ ...tx, label: e.target.value })}
             className="w-full rounded-md border border-gray-400 px-3 py-2 text-sm outline-none focus:border-navy"
           />
+          <div>
+            <label className="mb-1 block text-xs text-text-grey">Date &amp; time (leave blank for now)</label>
+            <input
+              type="datetime-local"
+              value={tx.createdAt}
+              onChange={(e) => setTx({ ...tx, createdAt: e.target.value })}
+              className="w-full rounded-md border border-gray-400 px-3 py-2 text-sm outline-none focus:border-navy"
+            />
+          </div>
           <button
             type="submit"
             disabled={busy}
@@ -255,6 +272,12 @@ export default function AccountAdmin({ account }) {
                         placeholder="Label (optional)"
                         value={edit.label}
                         onChange={(e) => setEdit({ ...edit, label: e.target.value })}
+                        className="w-full rounded-md border border-gray-400 px-2 py-1 text-sm outline-none focus:border-navy"
+                      />
+                      <input
+                        type="datetime-local"
+                        value={edit.createdAt}
+                        onChange={(e) => setEdit({ ...edit, createdAt: e.target.value })}
                         className="w-full rounded-md border border-gray-400 px-2 py-1 text-sm outline-none focus:border-navy"
                       />
                       <div className="flex gap-2">

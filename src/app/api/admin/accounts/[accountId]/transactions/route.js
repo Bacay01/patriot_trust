@@ -10,7 +10,7 @@ export async function POST(request, { params }) {
   }
 
   const { accountId } = await params;
-  const { type, amount, description, label } = await request.json();
+  const { type, amount, description, label, createdAt } = await request.json();
 
   const value = Number(amount);
   if (!type || isNaN(value) || value <= 0 || !description) {
@@ -37,6 +37,7 @@ export async function POST(request, { params }) {
         amount: value,
         description,
         label: label || null,
+        ...(createdAt ? { createdAt: new Date(createdAt) } : {}),
       },
     }),
     prisma.account.update({
